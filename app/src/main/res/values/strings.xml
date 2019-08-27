@@ -4,4 +4,8 @@
     <string name="im2">"http://2019.almafiesta.com/images/Leela_Dance1.jpg"</string>
     <string name="im3">"http://2019.almafiesta.com/images/Naalayak.jpg"</string>
     <string name="im4">"http://2019.almafiesta.com/images/aron-chupa.jpg"</string>
+    <string name="not1">null</string>
+    <string name="not2">null</string>
+    <string name="username">null</string>
+
 </resources>

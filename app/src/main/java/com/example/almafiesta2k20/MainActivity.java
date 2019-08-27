@@ -10,8 +10,11 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,11 +42,61 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         ImageView imageView=(ImageView)findViewById(R.id.imgs);
         imageView.setImageResource(R.drawable.ic_launcher_foreground);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        fragAdapter adapter = new fragAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
+
+        FloatingActionButton fb=(FloatingActionButton)findViewById(R.id.fb);
+        FloatingActionButton youtube=(FloatingActionButton)findViewById(R.id.youtube);
+        FloatingActionButton insta=(FloatingActionButton)findViewById(R.id.insta);
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/221147295821"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/almafiesta/")));
+                }
+
+            }
+        });
+        insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Uri uri = Uri.parse("https://www.instagram.com/almafiesta.iitbbs/");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+                likeIng.setPackage("com.instagram.android");
+
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.instagram.com/almafiesta.iitbbs/")));
+                }
+
+            }
+        });
+        youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent=null;
+                try {
+                    intent =new Intent(Intent.ACTION_VIEW);
+                    intent.setPackage("com.google.android.youtube");
+                    intent.setData(Uri.parse("https://www.youtube.com/channel/UCVAHFAfxXx0ZaOyS5VczKiA/featured"));
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://www.youtube.com/channel/UCVAHFAfxXx0ZaOyS5VczKiA/featured"));
+                    startActivity(intent);
+                }
+
+            }
+        });
         FloatingActionButton floatingActionButton=(FloatingActionButton)findViewById(R.id.pages);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

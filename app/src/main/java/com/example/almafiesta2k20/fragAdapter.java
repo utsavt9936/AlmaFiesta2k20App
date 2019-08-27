@@ -14,11 +14,11 @@ public class fragAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new eventsFragment();
+            return new musicfragment();
         } else if (position == 1){
-            return new sponcersFragment();
+            return new dramsfragment();
         } else if (position == 2) {
-            return new scheduleFragment();
+            return new dancefragment();
         }
         return null;
     }
