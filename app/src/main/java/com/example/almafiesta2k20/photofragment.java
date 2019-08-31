@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class dramsfragment extends Fragment {
+public class photofragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView= inflater.inflate(R.layout.dramsfragment, container, false);
+        View rootView= inflater.inflate(R.layout.fragment_photofragment, container, false);
 
 
 

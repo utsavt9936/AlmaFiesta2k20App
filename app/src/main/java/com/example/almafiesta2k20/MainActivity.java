@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 
@@ -33,15 +34,41 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Bitmap>> {
+public class MainActivity extends AppCompatActivity /*implements LoaderManager.LoaderCallbacks<ArrayList<Bitmap>>*/ {
     public int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imageView=(ImageView)findViewById(R.id.imgs);
-        imageView.setImageResource(R.drawable.ic_launcher_foreground);
+
+
+        /*button functions*/
+        LinearLayout events=(LinearLayout)findViewById(R.id.llevents);
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,eventsactivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         FloatingActionButton fb=(FloatingActionButton)findViewById(R.id.fb);
         FloatingActionButton youtube=(FloatingActionButton)findViewById(R.id.youtube);
@@ -121,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         });
 
 
-        LoaderManager.getInstance(this).initLoader(0,null,this).forceLoad();
+      //  LoaderManager.getInstance(this).initLoader(0,null,this).forceLoad();
 
 
 
@@ -130,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
-    @Override
+   /* @Override
     public Loader<ArrayList<Bitmap>> onCreateLoader(int id,  Bundle args) {
         ProgressBar pgbar=(ProgressBar)findViewById(R.id.pgb);
         pgbar.setVisibility(View.VISIBLE);
@@ -153,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         ImageView imageView=(ImageView)findViewById(R.id.imgs);
         imageView.setImageResource(R.drawable.ic_launcher_background);
     }
-
+*/
 
 
 

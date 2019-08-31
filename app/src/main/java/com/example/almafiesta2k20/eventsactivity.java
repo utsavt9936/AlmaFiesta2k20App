@@ -17,6 +17,7 @@ public class eventsactivity extends AppCompatActivity {
         fragAdapter adapter = new fragAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
     }
 }

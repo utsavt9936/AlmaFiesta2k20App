@@ -28,15 +28,19 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/sliding_tabs"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-
+            android:layout_height="56dp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Button"
+            android:singleLine="true"
             android:layout_gravity="fill_horizontal"
             app:tabMaxWidth="0dp"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            android:layout_weight="2"
             style="@style/MyCustomTabLayout"
             android:drawSelectorOnTop="true"/>
+
 
     </LinearLayout>
 

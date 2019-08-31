@@ -1,128 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/eventsbac"
+    tools:context=".MainActivity"
+    android:background="#000000">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/fb"
+        app:fabSize="auto"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="270dp"
+        android:visibility="invisible"
+
+        app:maxImageSize="60dp"
 
 
-    tools:context=".MainActivity">
+        />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/insta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/insta1"
+        app:fabSize="auto"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="180dp"
+        android:visibility="invisible"
+
+        app:maxImageSize="60dp"
+
+
+        />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/youtube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/youtube"
+        app:fabSize="auto"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="90dp"
+        android:visibility="invisible"
+
+        app:maxImageSize="60dp"
+
+
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="12dp"
+
+        android:src="@drawable/lalma"
+        app:rippleColor="#FF8A80"
+        app:fabSize="auto"
+        app:maxImageSize="60dp"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
         android:orientation="vertical"
         >
-        <ProgressBar
-            android:id="@+id/pgb"
-            android:visibility="gone"
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <ImageView
-
-            android:id="@+id/imgs"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0"
-            android:background="#000"/>
+            android:layout_height="300dp"
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_weight="25">
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-
-                />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/fb"
-                app:fabSize="auto"
-                android:layout_gravity="end|bottom"
-                android:layout_marginBottom="222dp"
-                android:layout_marginLeft="300dp"
-                android:visibility="invisible"
-                android:layout_alignParentBottom="true"
-                app:maxImageSize="60dp"
-
-
-                />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/insta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-               android:src="@drawable/insta1"
-                app:fabSize="auto"
-                android:layout_gravity="end|bottom"
-                android:layout_marginBottom="152dp"
-                android:layout_marginLeft="300dp"
-                android:visibility="invisible"
-                android:layout_alignParentBottom="true"
-                app:maxImageSize="60dp"
-
-
-                />
-
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/youtube"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ytube"
-
-                app:fabSize="auto"
-                android:layout_gravity="end|bottom"
-                android:layout_marginBottom="82dp"
-                android:layout_marginLeft="300dp"
-                android:visibility="invisible"
-                android:layout_alignParentBottom="true"
-                app:maxImageSize="60dp"
-
-
-                />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/pages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="end|bottom"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="300dp"
-                android:layout_alignParentBottom="true"
-
-                android:src="@drawable/lalma"
-                app:rippleColor="#FF8A80"
-                app:fabSize="auto"
-                app:maxImageSize="60dp"
-                />
-
-        </RelativeLayout>
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/sliding_tabs"
+            />
+        <TextView
+            android:id="@+id/up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            app:tabMaxWidth="0dp"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            android:layout_weight="2"
-            style="@style/MyCustomTabLayout"
-            android:drawSelectorOnTop="true"/>
+            android:layout_margin="22dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:text="Current updates"/>
+        <TextView
+            android:id="@+id/up1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:text="Current updates"/>
+        <TextView
+            android:id="@+id/up2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:text="Current updates"/>
+        <TextView
+            android:id="@+id/up3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:text="Current updates"/>
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+
+           >
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_margin="15dp"
+               android:layout_weight="1"
+               android:id="@+id/llevents">
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_margin="12dp"
+                   android:src="@drawable/events"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:gravity="center_horizontal"
+                   android:fontFamily=""
+                   android:layout_height="wrap_content"
+                   android:textSize="22sp"
+                   android:textStyle="italic"
+                   android:layout_margin="5dp"
+                   android:text="Events"/>
+
+
+
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_margin="15dp"
+               android:layout_weight="1">
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_margin="12dp"
+                   android:src="@drawable/gallery"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:gravity="center_horizontal"
+                   android:layout_height="wrap_content"
+                   android:textSize="22sp"
+                   android:textStyle="italic"
+                   android:layout_margin="5dp"
+                   android:text="Gallery"/>
+
+
+
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_margin="15dp"
+               android:layout_weight="1">
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_margin="12dp"
+                   android:src="@drawable/spons"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:gravity="center_horizontal"
+                   android:layout_height="wrap_content"
+                   android:textSize="22sp"
+                   android:textStyle="italic"
+                   android:layout_margin="5dp"
+                   android:text="Sponsors"/>
+
+
+
+           </LinearLayout>
+
+
+
+
+
+
+
+       </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/works"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textStyle="italic"
+                    android:layout_margin="5dp"
+                    android:text="Workshop"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/star"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:textSize="23sp"
+                    android:textStyle="italic"
+                    android:layout_margin="5dp"
+                    android:text="Starnight"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/map"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textStyle="italic"
+                    android:layout_margin="5dp"
+                    android:text="Map"/>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
-    
-    />
 
 
 
@@ -131,5 +326,6 @@
 
 
 
+    </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
