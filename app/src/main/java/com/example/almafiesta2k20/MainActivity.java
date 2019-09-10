@@ -11,17 +11,21 @@ import androidx.loader.content.Loader;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,16 +44,80 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ViewPager pager=findViewById(R.id.viewpager);
+        nPagerAdapter np=new nPagerAdapter(this);
+        pager.setAdapter(np);
+        pager.setCurrentItem(0);
+        np.setTimer(pager,4);
 
 
         /*button functions*/
+        LinearLayout map=(LinearLayout)findViewById(R.id.llmap);
+       map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ConnectivityManager cm =
+                        (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+
+                boolean isConnected = cm.getActiveNetworkInfo() != null &&
+                        cm.getActiveNetworkInfo().isConnectedOrConnecting();
+                if(isConnected==true)
+                {
+
+                    Intent intent=new Intent(MainActivity.this,mapactivity.class);
+                    startActivity(intent);
+
+
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this,"No Internet Connection",Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+        });
         LinearLayout events=(LinearLayout)findViewById(R.id.llevents);
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,eventsactivity.class);
                 startActivity(intent);
+            }
+        });
+        LinearLayout spons=(LinearLayout)findViewById(R.id.llsponsor);
+      spons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,sponsactivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout gallery=(LinearLayout)findViewById(R.id.gallery);
+        gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConnectivityManager cm =
+                        (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+
+                boolean isConnected = cm.getActiveNetworkInfo() != null &&
+                        cm.getActiveNetworkInfo().isConnectedOrConnecting();
+                if(isConnected==true)
+                {
+                    Intent intent=new Intent(MainActivity.this,galleryactivity.class);
+                    startActivity(intent);
+
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this,"No Internet Connection",Toast.LENGTH_LONG).show();
+                }
+
+
+
             }
         });
 
