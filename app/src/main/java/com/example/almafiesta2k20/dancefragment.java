@@ -20,10 +20,10 @@ public class dancefragment extends Fragment {
 
 
        final ArrayList<eventData> danceData=new ArrayList<>();
-        danceData.add(new eventData(R.drawable.sddr1,getResources().getString(R.string.sdd1),getResources().getString(R.string.sdh1),getResources().getString(R.string.ripout)));
+       /* danceData.add(new eventData(R.drawable.sddr1,getResources().getString(R.string.sdd1),getResources().getString(R.string.sdh1),getResources().getString(R.string.ripout)));
         danceData.add(new eventData(R.drawable.sddr2,getResources().getString(R.string.sdd2),getResources().getString(R.string.sdh2),getResources().getString(R.string.topsy)));
         danceData.add(new eventData(R.drawable.sddr3,getResources().getString(R.string.sdd3),getResources().getString(R.string.sdh3),getResources().getString(R.string.rab)));
-
+*/
 
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,danceData);
         final ListView list = rootView.findViewById(R.id.danceList);
@@ -34,12 +34,12 @@ public class dancefragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-
+/*
                 Intent intent=new Intent(dancefragment.this,listOpener.class);
                 intent.putExtra("Text",danceData.get(i).getText());
                 intent.putExtra("Head",danceData.get(i).getHead());
                 intent.putExtra("Image ID",danceData.get(i).getImage());
-                startActivity(intent);
+                startActivity(intent);*/
 
 
             }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "393161870064",
+    "firebase_url": "https://almafiestaapp.firebaseio.com",
+    "project_id": "almafiestaapp",
+    "storage_bucket": "almafiestaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393161870064:android:1201cc5f0aa94d48691035",
+        "android_client_info": {
+          "package_name": "com.example.almafiesta2k20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393161870064-iv2int96u769h9p7ngfi5nld1da5l42l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV5xj1gs4TpCeIkmfyoxhjMkqE9hVz8T8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393161870064-iv2int96u769h9p7ngfi5nld1da5l42l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

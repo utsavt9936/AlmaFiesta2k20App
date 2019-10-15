@@ -25,11 +25,17 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +46,78 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity /*implements LoaderManager.LoaderCallbacks<ArrayList<Bitmap>>*/ {
     public int i=0;
+    DatabaseReference mRootRef= FirebaseDatabase.getInstance().getReference();
+
+    DatabaseReference childRef1=mRootRef.child("Update1");
+    DatabaseReference childRef2=mRootRef.child("Update2");
+    DatabaseReference childRef3=mRootRef.child("Update3");
+
+
+    @Override
+    protected void onStart() {
+        childRef1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String up1=dataSnapshot.getValue(String.class);
+                TextView upt1=(TextView)findViewById(R.id.up1);
+                upt1.setText(up1);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                String up1="Fetching Data";
+                TextView upt1=(TextView)findViewById(R.id.up1);
+                upt1.setText(up1);
+
+            }
+        });
+        childRef2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String up1=dataSnapshot.getValue(String.class);
+                TextView upt1=(TextView)findViewById(R.id.up2);
+                upt1.setText(up1);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                String up1="Fetching Data";
+                TextView upt1=(TextView)findViewById(R.id.up2);
+                upt1.setText(up1);
+
+            }
+        });
+
+        childRef1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String up1=dataSnapshot.getValue(String.class);
+                TextView upt1=(TextView)findViewById(R.id.up3);
+                upt1.setText(up1);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                String up1="Fetching Data";
+                TextView upt1=(TextView)findViewById(R.id.up3);
+                upt1.setText(up1);
+
+            }
+        });
+
+
+        super.onStart();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +127,6 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         pager.setAdapter(np);
         pager.setCurrentItem(0);
         np.setTimer(pager,4);
-
 
         /*button functions*/
         LinearLayout map=(LinearLayout)findViewById(R.id.llmap);
@@ -120,6 +197,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
 
             }
         });
+
 
 
 

@@ -18,9 +18,9 @@ public class finefragment extends Fragment {
 
 
         ArrayList<eventData> fineDta=new ArrayList<>();
-        fineDta.add(new eventData(R.drawable.sfdr1,getResources().getString(R.string.sfd1),getResources().getString(R.string.sfh1),getResources().getString(R.string.shadez)));
+        /*fineDta.add(new eventData(R.drawable.sfdr1,getResources().getString(R.string.sfd1),getResources().getString(R.string.sfh1),getResources().getString(R.string.shadez)));
         fineDta.add(new eventData(R.drawable.sfdr2,getResources().getString(R.string.sfd2),getResources().getString(R.string.sfh2),getResources().getString(R.string.facepainting)));
-
+*/
 
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,fineDta);
         final ListView list= rootView.findViewById(R.id.fineList);

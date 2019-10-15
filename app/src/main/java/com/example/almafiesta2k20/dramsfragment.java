@@ -20,10 +20,10 @@ public class dramsfragment extends Fragment {
 
 
         final ArrayList<eventData> dramsData=new ArrayList<>();
-        dramsData.add(new eventData(R.drawable.sdrdr1,getResources().getString(R.string.sdrd1),getResources().getString(R.string.sdrh1),getResources().getString(R.string.faceoff)));
+       /* dramsData.add(new eventData(R.drawable.sdrdr1,getResources().getString(R.string.sdrd1),getResources().getString(R.string.sdrh1),getResources().getString(R.string.faceoff)));
         dramsData.add(new eventData(R.drawable.sdrdr2,getResources().getString(R.string.sdrd2),getResources().getString(R.string.sdrh2),getResources().getString(R.string.ncircled)));
         dramsData.add(new eventData(R.drawable.sdrdr3,getResources().getString(R.string.sdrd3),getResources().getString(R.string.sdrh3),getResources().getString(R.string.spotlight)));
-
+*/
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,dramsData);
         final ListView list= rootView.findViewById(R.id.dramsList);
         list.setAdapter(lar);
@@ -35,11 +35,11 @@ public class dramsfragment extends Fragment {
 
 
 
-                Intent intent=new Intent(dramsfragment.this,listOpener.class);
+               /* Intent intent=new Intent(dramsfragment.this,listOpener.class);
                 intent.putExtra("Text",dramsData.get(i).getText());
                 intent.putExtra("Head",dramsData.get(i).getHead());
                 intent.putExtra("Image ID",dramsData.get(i).getImage());
-                startActivity(intent);
+                startActivity(intent);*/
 
 
             }
