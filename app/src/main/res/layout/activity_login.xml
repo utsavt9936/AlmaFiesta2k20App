@@ -46,6 +46,25 @@
             >
 
         </Button>
+        <Button
+            android:id="@+id/guest_button"
+            android:text="Continue as Guest"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+        <EditText
+            android:id="@+id/guestText"
+            android:hint="your name"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"></EditText>
+        <Button
+            android:id="@+id/sumb"
+            android:text="SUBMIT"
+            android:visibility="invisible"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
 
     </LinearLayout>
 

@@ -6,7 +6,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -56,6 +62,26 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        boolean b=cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+        if(b!=true)
+            Toast.makeText(this,"No Internet Continue as guest",Toast.LENGTH_SHORT).show();
+
+
+
+
+nameDbHelper mHelper=new nameDbHelper(this);
+        SQLiteDatabase db= mHelper.getReadableDatabase();
+        String[] projection={"name"};
+        Cursor cursor=db.query("login",projection,null,null,null,null,null);
+
+
+
+
+
+
+
         //first we intialized the FirebaseAuth object
         mAuth = FirebaseAuth.getInstance();
 
@@ -78,6 +104,15 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
+
+        findViewById(R.id.guest_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guestIn();
+            }
+        });
+
+
     }
 
     @Override
@@ -87,8 +122,31 @@ public class LoginActivity extends AppCompatActivity {
         //if the user is already signed in
         //we will close this activity
         //and take the user to profile activity
+
+
+
+
+
+
+
+        nameDbHelper mHelper=new nameDbHelper(this);
+       final SQLiteDatabase db= mHelper.getReadableDatabase();
+        String[] projection={"name"};
+        Cursor cursor=db.query("login",projection,null,null,null,null,null);
+
+
+
+
+
+
+
+
+
+
+
         FirebaseUser currentUser=mAuth.getCurrentUser();
         if (currentUser!= null) {
+            findViewById(R.id.guest_button).setVisibility(View.INVISIBLE);
 
             final Intent intent=new Intent(this, MainActivity.class);
             SignInButton sgnb=(SignInButton)findViewById(R.id.sign_in_button);
@@ -103,10 +161,12 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     FirebaseAuth.getInstance().signOut();
+                    findViewById(R.id.guest_button).setVisibility(View.VISIBLE);
                     finish();
 
 
                     startActivity(getIntent());
+
 
                 }
             });
@@ -114,6 +174,29 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+
+        }
+        else if(cursor.getCount()>0)
+        {
+            findViewById(R.id.guest_button).setVisibility(View.INVISIBLE);
+            TextView nameView=(TextView)findViewById(R.id.nameText);
+            cursor.moveToFirst();
+            nameView.setText(cursor.getString(cursor.getColumnIndex("name")));
+            Button button=(Button)findViewById(R.id.lgb);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    db.delete("login",null,null);
+
+                    findViewById(R.id.guest_button).setVisibility(View.VISIBLE);
+                    finish();
+
+
+                    startActivity(getIntent());
+
+                }
+            });
 
 
         }
@@ -164,28 +247,15 @@ public class LoginActivity extends AppCompatActivity {
 
                             int secs = 2; // Delay in seconds
 
-                            new Timer().schedule(
-                                    new TimerTask(){
-
-                                        @Override
-                                        public void run(){
-
-
-                                            Button button=(Button)findViewById(R.id.lgb);
-                                            button.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View view) {
-                                                    FirebaseAuth.getInstance().signOut();
-                                                }
-                                            });
-                                            finish();
-
-
-
-                                            //if you need some code to run when the delay expires
-                                        }
-
-                                    }, 4000);
+                            Button button=(Button)findViewById(R.id.lgb);
+                            button.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    FirebaseAuth.getInstance().signOut();
+                                }
+                            });
+                            finish();
+                            startActivity(getIntent());
 
 
 
@@ -205,7 +275,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Authentication failed. please continue as guest",
                                     Toast.LENGTH_SHORT).show();
 
                         }
@@ -223,5 +293,32 @@ public class LoginActivity extends AppCompatActivity {
 
         //starting the activity for result
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+
+
+    private void guestIn(){
+      final EditText gText=(EditText) findViewById(R.id.guestText);
+      gText.setVisibility(View.VISIBLE);
+        nameDbHelper mHelper=new nameDbHelper(this);
+        final SQLiteDatabase db= mHelper.getReadableDatabase();
+        Button button=(Button)findViewById(R.id.sumb) ;
+        button.setVisibility(View.VISIBLE);
+      button.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+
+
+
+              ContentValues values = new ContentValues();
+              values.put("name", gText.getText().toString().trim());
+
+              db.insert("login",null,values);
+              finish();
+
+
+              startActivity(getIntent());
+          }
+      });
     }
 }
