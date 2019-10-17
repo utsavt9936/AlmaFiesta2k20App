@@ -1,9 +1,11 @@
 package com.example.almafiesta2k20;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.animation.ObjectAnimator;
 import android.content.ContentValues;
@@ -49,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 234;
 
     //Tag for the logs optional
-    private static final String TAG = "simplifiedcoding";
+    private static final String TAG = "simplifiedCoding";
 
     //creating a GoogleSignInClient object
     GoogleSignInClient mGoogleSignInClient;
@@ -62,27 +64,21 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Checking Internet Connectivity
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        boolean b=cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+        boolean b=cm.getActiveNetworkInfo()!= null && cm.getActiveNetworkInfo().isConnected();
         if(b!=true)
-            Toast.makeText(this,"No Internet Continue as guest",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Internet, Continue as Guest",Toast.LENGTH_SHORT).show();
 
 
-
-
-nameDbHelper mHelper=new nameDbHelper(this);
-        SQLiteDatabase db= mHelper.getReadableDatabase();
+        //Calling Database
+        final SQLiteDatabase db=callDatabase();
         String[] projection={"name"};
         Cursor cursor=db.query("login",projection,null,null,null,null,null);
 
 
 
-
-
-
-
-        //first we intialized the FirebaseAuth object
+        //first we initialized the FirebaseAuth object
         mAuth = FirebaseAuth.getInstance();
 
         //Then we need a GoogleSignInOptions object
@@ -111,9 +107,15 @@ nameDbHelper mHelper=new nameDbHelper(this);
                 guestIn();
             }
         });
-
-
     }
+
+
+
+
+
+
+
+
 
     @Override
     protected void onStart() {
@@ -125,49 +127,31 @@ nameDbHelper mHelper=new nameDbHelper(this);
 
 
 
-
-
-
-
-        nameDbHelper mHelper=new nameDbHelper(this);
-       final SQLiteDatabase db= mHelper.getReadableDatabase();
+        final SQLiteDatabase db=callDatabase();
         String[] projection={"name"};
         Cursor cursor=db.query("login",projection,null,null,null,null,null);
 
 
 
-
-
-
-
-
-
-
-
         FirebaseUser currentUser=mAuth.getCurrentUser();
-        if (currentUser!= null) {
-            findViewById(R.id.guest_button).setVisibility(View.INVISIBLE);
 
-            final Intent intent=new Intent(this, MainActivity.class);
+
+        final Intent intent=new Intent(this, MainActivity.class);
+        if (currentUser!= null) {
+            startActivity(intent);
+            findViewById(R.id.guest_button).setVisibility(View.GONE);
+
             SignInButton sgnb=(SignInButton)findViewById(R.id.sign_in_button);
             sgnb.setVisibility(View.GONE);
-            TextView nameView=(TextView)findViewById(R.id.nameText);
-            nameView.setText(currentUser.getDisplayName());
 
-            int secs = 2; // Delay in seconds
-
-            Button button=(Button)findViewById(R.id.lgb);
-            button.setOnClickListener(new View.OnClickListener() {
+            CardView cardView=findViewById(R.id.lgb);
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     FirebaseAuth.getInstance().signOut();
                     findViewById(R.id.guest_button).setVisibility(View.VISIBLE);
                     finish();
-
-
                     startActivity(getIntent());
-
-
                 }
             });
 
@@ -179,20 +163,19 @@ nameDbHelper mHelper=new nameDbHelper(this);
         }
         else if(cursor.getCount()>0)
         {
+            startActivity(intent);
             findViewById(R.id.guest_button).setVisibility(View.INVISIBLE);
             TextView nameView=(TextView)findViewById(R.id.nameText);
             cursor.moveToFirst();
             nameView.setText(cursor.getString(cursor.getColumnIndex("name")));
-            Button button=(Button)findViewById(R.id.lgb);
-            button.setOnClickListener(new View.OnClickListener() {
+            CardView cardView=findViewById(R.id.lgb);
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     db.delete("login",null,null);
 
-                    findViewById(R.id.guest_button).setVisibility(View.VISIBLE);
+                    findViewById(R.id.guest_button).setVisibility(View.GONE);
                     finish();
-
-
                     startActivity(getIntent());
 
                 }
@@ -237,7 +220,7 @@ nameDbHelper mHelper=new nameDbHelper(this);
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-
+                            final SQLiteDatabase db=callDatabase();
                             FirebaseUser currentUser=mAuth.getCurrentUser();
 
                             SignInButton sgnb=(SignInButton)findViewById(R.id.sign_in_button);
@@ -245,28 +228,21 @@ nameDbHelper mHelper=new nameDbHelper(this);
                             TextView nameView=(TextView)findViewById(R.id.nameText);
                             nameView.setText(currentUser.getDisplayName());
 
+                            ContentValues values = new ContentValues();
+                            values.put("name", currentUser.getDisplayName());
+                            db.insert("login",null,values);
                             int secs = 2; // Delay in seconds
 
-                            Button button=(Button)findViewById(R.id.lgb);
-                            button.setOnClickListener(new View.OnClickListener() {
+                            CardView cardView=findViewById(R.id.lgb);
+                            cardView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     FirebaseAuth.getInstance().signOut();
+                                    db.delete("login",null,null);
                                 }
                             });
                             finish();
-                            startActivity(getIntent());
-
-
-
-
-
-
-
-
-
-
-
+                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
 
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
@@ -288,7 +264,7 @@ nameDbHelper mHelper=new nameDbHelper(this);
 
     //this method is called on click
     private void signIn() {
-        //getting the google signin intent
+        //getting the google sign in intent
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
 
         //starting the activity for result
@@ -298,27 +274,35 @@ nameDbHelper mHelper=new nameDbHelper(this);
 
 
     private void guestIn(){
-      final EditText gText=(EditText) findViewById(R.id.guestText);
-      gText.setVisibility(View.VISIBLE);
+        final EditText gText=(EditText) findViewById(R.id.guestText);
+        gText.setVisibility(View.VISIBLE);
         nameDbHelper mHelper=new nameDbHelper(this);
         final SQLiteDatabase db= mHelper.getReadableDatabase();
-        Button button=(Button)findViewById(R.id.sumb) ;
-        button.setVisibility(View.VISIBLE);
-      button.setOnClickListener(new View.OnClickListener() {
+        CardView cardview =findViewById(R.id.sumb) ;
+        cardview.setVisibility(View.VISIBLE);
+        cardview.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
 
+              if(gText.getText().length()==0)
+                  gText.setError("Field cannot be Empty");
+              else{
+                  ContentValues values = new ContentValues();
+                  values.put("name", gText.getText().toString().trim());
+                  db.insert("login",null,values);
 
-
-              ContentValues values = new ContentValues();
-              values.put("name", gText.getText().toString().trim());
-
-              db.insert("login",null,values);
-              finish();
-
-
-              startActivity(getIntent());
+                  finish();
+                  startActivity(getIntent());}
           }
       });
+    }
+
+
+
+
+    public SQLiteDatabase callDatabase(){
+        nameDbHelper mHelper=new nameDbHelper(this);
+        SQLiteDatabase db= mHelper.getReadableDatabase();
+        return(db);
     }
 }

@@ -19,8 +19,11 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -52,6 +55,14 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
     DatabaseReference childRef2=mRootRef.child("Update2");
     DatabaseReference childRef3=mRootRef.child("Update3");
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     @Override
     protected void onStart() {
@@ -122,7 +133,10 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ViewPager pager=findViewById(R.id.viewpager);
+
+
+
+    ViewPager pager=findViewById(R.id.viewpager);
         nPagerAdapter np=new nPagerAdapter(this);
         pager.setAdapter(np);
         pager.setCurrentItem(0);

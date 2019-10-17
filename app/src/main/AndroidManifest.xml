@@ -14,9 +14,11 @@
         <activity android:name=".sponsactivity" />
         <activity android:name=".galleryactivity" />
         <activity android:name=".eventsactivity" />
+        <activity android:name=".LoginActivity"/>
         <activity
-            android:name=".LoginActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize">
+            android:name=".SplashScreenActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
