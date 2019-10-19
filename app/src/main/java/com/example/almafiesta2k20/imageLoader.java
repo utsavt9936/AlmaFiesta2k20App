@@ -25,10 +25,10 @@ public class imageLoader extends AsyncTaskLoader<ArrayList<Bitmap>> {
     @Override
     public ArrayList<Bitmap> loadInBackground() {
         ArrayList<Bitmap> imlist=new ArrayList<Bitmap>();
-        imlist.add(fetchImage(getContext().getResources().getString(R.string.im1)));
-        imlist.add(fetchImage(getContext().getResources().getString(R.string.im2)));
-        imlist.add(fetchImage(getContext().getResources().getString(R.string.im3)));
-        imlist.add(fetchImage(getContext().getResources().getString(R.string.im4)));
+        imlist.add(fetchImage(getContext().getResources().getString(R.string.app_name)));
+        imlist.add(fetchImage(getContext().getResources().getString(R.string.app_name)));
+        imlist.add(fetchImage(getContext().getResources().getString(R.string.app_name)));
+        imlist.add(fetchImage(getContext().getResources().getString(R.string.app_name)));
         return imlist;
     }
 

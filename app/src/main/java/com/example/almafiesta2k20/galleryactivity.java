@@ -23,7 +23,7 @@ public class galleryactivity extends AppCompatActivity {
         WebView myWebView = (WebView) findViewById(R.id.webview);
 
         myWebView.loadUrl("https://drive.google.com/drive/folders/1VFrmOPFLw2-2haq1DCgi4yMqyekpfBPZ?usp=sharing");
-
+        finish();
 
     }
 

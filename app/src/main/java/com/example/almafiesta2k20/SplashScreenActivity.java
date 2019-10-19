@@ -1,11 +1,14 @@
 package com.example.almafiesta2k20;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +31,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         //this will bind your MainActivity.class file with activity_main.
 
+
+        //setting user's name in splashScreen
+        TextView username=findViewById(R.id.username);
+        cursor.moveToFirst();
+        username.setText(cursor.getString(0));
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -39,7 +48,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 else
                     i=new Intent(SplashScreenActivity.this,MainActivity.class);
 
-                startActivity(i);
+                startActivity(i, ActivityOptions.makeSceneTransitionAnimation(SplashScreenActivity.this).toBundle());
                 //invoke the SecondActivity.
 
                 finish();
