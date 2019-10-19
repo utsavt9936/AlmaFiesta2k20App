@@ -15,10 +15,9 @@ public class eventData {
         mHead=head;
        mRule=rule;
     }
-   public String getRule(){
+    public String getRule(){
         return mRule;
    }
-
     public int getImage(){
         return mImageID;
     }

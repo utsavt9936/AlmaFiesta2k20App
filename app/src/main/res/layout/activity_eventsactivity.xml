@@ -1,55 +1,50 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:orientation="vertical"
-        >
-
-
-
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="18"
-
-
-                />
-
-
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/sliding_tabs"
+        tools:context=".MainActivity">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:tabTextAppearance="@style/TextAppearance.AppCompat.Button"
-            android:singleLine="true"
-            android:layout_gravity="fill_horizontal"
-            app:tabMaxWidth="0dp"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            style="@style/MyCustomTabLayout"
-            android:drawSelectorOnTop="true"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="18"
 
 
-    </LinearLayout>
+                    />
 
 
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/sliding_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Button"
+                android:singleLine="true"
+                android:layout_gravity="fill_horizontal"
+                app:tabMaxWidth="0dp"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                style="@style/MyCustomTabLayout"
+                android:drawSelectorOnTop="true"/>
+
+
+        </LinearLayout>
 
 
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

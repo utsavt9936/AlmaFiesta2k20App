@@ -14,14 +14,15 @@ public class listOpener extends AppCompatActivity {
         setContentView(R.layout.event_data_layout);
         String passedText = getIntent().getStringExtra("Text");
         String passedHead = getIntent().getStringExtra("Head");
-        int passedimgid = getIntent().getIntExtra("Image ID",0);
+        String passedRule = getIntent().getStringExtra("Rules");
+        int passedImageID = getIntent().getIntExtra("Image ID",0);
 
         TextView text=findViewById(R.id.eventText);
-        text.setText(passedText);
+        text.setText(passedText+"\n\n"+passedRule);
         TextView head=findViewById(R.id.eventHead);
         head.setText(passedHead);
         ImageView image=findViewById(R.id.eventImage);
-        image.setImageResource(passedimgid);
+        image.setImageResource(passedImageID);
 
     }
 }

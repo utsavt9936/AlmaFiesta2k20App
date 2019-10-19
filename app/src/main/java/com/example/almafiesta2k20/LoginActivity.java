@@ -206,7 +206,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 

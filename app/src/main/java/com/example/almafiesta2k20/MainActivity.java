@@ -10,6 +10,8 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -20,9 +22,11 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.transition.Fade;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -134,9 +138,9 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().setEnterTransition(new Fade());
 
-
-    ViewPager pager=findViewById(R.id.viewpager);
+        ViewPager pager=findViewById(R.id.viewpager);
         nPagerAdapter np=new nPagerAdapter(this);
         pager.setAdapter(np);
         pager.setCurrentItem(0);
@@ -158,7 +162,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
                 {
 
                     Intent intent=new Intent(MainActivity.this,mapactivity.class);
-                    startActivity(intent);
+                    startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
 
 
                 }
@@ -175,7 +179,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,eventsactivity.class);
-                startActivity(intent);
+                startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
             }
         });
         LinearLayout spons=(LinearLayout)findViewById(R.id.llsponsor);
@@ -183,7 +187,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,sponsactivity.class);
-                startActivity(intent);
+                startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
             }
         });
         LinearLayout gallery=(LinearLayout)findViewById(R.id.gallery);
@@ -199,7 +203,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
                 if(isConnected==true)
                 {
                     Intent intent=new Intent(MainActivity.this,galleryactivity.class);
-                    startActivity(intent);
+                    startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
 
                 }
                 else

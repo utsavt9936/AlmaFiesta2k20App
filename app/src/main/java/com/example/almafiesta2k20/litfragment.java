@@ -1,9 +1,11 @@
 package com.example.almafiesta2k20;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -19,26 +21,33 @@ public class litfragment extends Fragment {
 
 
 
-        ArrayList<eventData> litData=new ArrayList<>();
-       /* litData.add(new eventData(R.drawable.sldr1,getResources().getString(R.string.sld1),getResources().getString(R.string.slh1),getResources().getString(R.string.mun)));
-        litData.add(new eventData(R.drawable.sldr2,getResources().getString(R.string.sld2),getResources().getString(R.string.slh2),getResources().getString(R.string.samvad)));
-        litData.add(new eventData(R.drawable.sldr3,getResources().getString(R.string.sld3),getResources().getString(R.string.slh3),getResources().getString(R.string.drishtikon)));
-        litData.add(new eventData(R.drawable.sldr4,getResources().getString(R.string.sld4),getResources().getString(R.string.slh4),getResources().getString(R.string.poetry)));
-*/
+        final ArrayList<eventData> litData=new ArrayList<>();
+        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld1),getResources().getString(R.string.slh1),getResources().getString(R.string.slr1)));
+        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld2),getResources().getString(R.string.slh2),getResources().getString(R.string.slr2)));
+        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld3),getResources().getString(R.string.slh3),getResources().getString(R.string.slr3)));
+        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld4),getResources().getString(R.string.slh4),getResources().getString(R.string.slr4)));
+
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,litData);
         final ListView list= rootView.findViewById(R.id.litList);
         list.setAdapter(lar);
 
 
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
 
+                Intent intent=new Intent(getActivity(),listOpener.class);
+                intent.putExtra("Text",litData.get(i).getText());
+                intent.putExtra("Head",litData.get(i).getHead());
+                intent.putExtra("Image ID",litData.get(i).getImage());
+                intent.putExtra("Rules",litData.get(i).getRule());
+                startActivity(intent);
 
 
-
-
-
-
+            }
+        });
 
 
 

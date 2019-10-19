@@ -15,6 +15,7 @@
         <activity android:name=".galleryactivity" />
         <activity android:name=".eventsactivity" />
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".listOpener"/>
         <activity
             android:name=".SplashScreenActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
