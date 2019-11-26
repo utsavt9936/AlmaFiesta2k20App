@@ -20,9 +20,9 @@ public class dancefragment extends Fragment {
 
 
        final ArrayList<eventData> danceData=new ArrayList<>();
-        danceData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sdd1),getResources().getString(R.string.sdh1),getResources().getString(R.string.sdr1)));
-        danceData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sdd2),getResources().getString(R.string.sdh2),getResources().getString(R.string.sdr2)));
-        danceData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sdd3),getResources().getString(R.string.sdh3),getResources().getString(R.string.sdr3)));
+        danceData.add(new eventData(R.drawable.img4,R.drawable.ripout,getResources().getString(R.string.sdd1),getResources().getString(R.string.sdh1),getResources().getString(R.string.sdr1)));
+        danceData.add(new eventData(R.drawable.img4,R.drawable.topsyturvey,getResources().getString(R.string.sdd2),getResources().getString(R.string.sdh2),getResources().getString(R.string.sdr2)));
+        danceData.add(new eventData(R.drawable.img4,R.drawable.rabne,getResources().getString(R.string.sdd3),getResources().getString(R.string.sdh3),getResources().getString(R.string.sdr3)));
 
 
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,danceData);

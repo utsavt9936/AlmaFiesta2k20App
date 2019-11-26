@@ -33,7 +33,7 @@ public class listArrayAdapter extends ArrayAdapter<eventData> {
         TextView eventHead=listItemView.findViewById(R.id.listText);
         eventHead.setText(currentEventData.getHead());
         ImageView icon=listItemView.findViewById(R.id.icon);
-        icon.setImageResource(R.drawable.almalogo);
+        icon.setImageResource(currentEventData.getImage2());
         return listItemView;
     }
 }

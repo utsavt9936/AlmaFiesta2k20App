@@ -112,8 +112,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
                 android:text="Current updates"
-                android:textSize="20sp"
+                android:fontFamily="@font/buenard"
 
+                android:textColor="#420606"
+
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -121,8 +124,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:fontFamily="@font/buenard"
                 android:text="Current updates"
-                android:textSize="12sp"
+
+
+
+                android:textColor="#420606"
+                android:textSize="16sp"
                 android:textStyle="italic" />
 
             <TextView
@@ -131,7 +139,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="Current updates"
-                android:textSize="12sp"
+
+                android:fontFamily="@font/buenard"
+
+                android:textColor="#420606"
+                android:textSize="16sp"
                 android:textStyle="italic" />
 
             <TextView
@@ -140,7 +152,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="Current updates"
-                android:textSize="12sp"
+
+                android:fontFamily="@font/buenard"
+
+                android:textColor="#420606"
+                android:textSize="16sp"
                 android:textStyle="italic" />
 
 
@@ -171,6 +187,10 @@
                         android:fontFamily=""
                         android:gravity="center_horizontal"
                         android:text="Events"
+
+
+
+                        android:textColor="#420606"
                         android:textSize="22sp"
                         android:textStyle="italic" />
 
@@ -196,6 +216,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+
+                        android:fontFamily="@font/buenard"
+
+                        android:textColor="#420606"
                         android:gravity="center_horizontal"
                         android:text="Gallery"
                         android:textSize="22sp"
@@ -226,6 +250,10 @@
                         android:gravity="center_horizontal"
                         android:text="Sponsors"
                         android:textSize="22sp"
+
+                        android:fontFamily="@font/buenard"
+
+                        android:textColor="#420606"
                         android:textStyle="italic" />
                 </LinearLayout>
             </LinearLayout>
@@ -253,6 +281,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/buenard"
+
+                        android:textColor="#420606"
 
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
@@ -284,6 +316,10 @@
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:text="Starnight"
+
+                        android:fontFamily="@font/buenard"
+
+                        android:textColor="#420606"
                         android:textSize="23sp"
                         android:textStyle="italic" />
 
@@ -311,6 +347,10 @@
                         android:layout_margin="5dp"
                         android:gravity="center_horizontal"
                         android:text="Map"
+
+                        android:fontFamily="@font/buenard"
+
+                        android:textColor="#420606"
                         android:textSize="25sp"
                         android:textStyle="italic" />
 

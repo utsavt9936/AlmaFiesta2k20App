@@ -20,9 +20,9 @@ public class dramsfragment extends Fragment {
 
 
         final ArrayList<eventData> dramsData=new ArrayList<>();
-        dramsData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sdrd1),getResources().getString(R.string.sdrh1),getResources().getString(R.string.sdrr1)));
-        dramsData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sdrd2),getResources().getString(R.string.sdrh2),getResources().getString(R.string.sdrr2)));
-        dramsData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sdrd3),getResources().getString(R.string.sdrh3),getResources().getString(R.string.sdrr3)));
+        dramsData.add(new eventData(R.drawable.img4,R.drawable.faceoff,getResources().getString(R.string.sdrd1),getResources().getString(R.string.sdrh1),getResources().getString(R.string.sdrr1)));
+        dramsData.add(new eventData(R.drawable.img4,R.drawable.ncircl,getResources().getString(R.string.sdrd2),getResources().getString(R.string.sdrh2),getResources().getString(R.string.sdrr2)));
+        dramsData.add(new eventData(R.drawable.img4,R.drawable.spotlight,getResources().getString(R.string.sdrd3),getResources().getString(R.string.sdrh3),getResources().getString(R.string.sdrr3)));
 
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,dramsData);
         final ListView list= rootView.findViewById(R.id.dramsList);

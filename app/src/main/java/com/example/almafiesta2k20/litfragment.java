@@ -22,10 +22,10 @@ public class litfragment extends Fragment {
 
 
         final ArrayList<eventData> litData=new ArrayList<>();
-        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld1),getResources().getString(R.string.slh1),getResources().getString(R.string.slr1)));
-        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld2),getResources().getString(R.string.slh2),getResources().getString(R.string.slr2)));
-        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld3),getResources().getString(R.string.slh3),getResources().getString(R.string.slr3)));
-        litData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sld4),getResources().getString(R.string.slh4),getResources().getString(R.string.slr4)));
+        litData.add(new eventData(R.drawable.img4,R.drawable.mun,getResources().getString(R.string.sld1),getResources().getString(R.string.slh1),getResources().getString(R.string.slr1)));
+        litData.add(new eventData(R.drawable.img4,R.drawable.seedha,getResources().getString(R.string.sld2),getResources().getString(R.string.slh2),getResources().getString(R.string.slr2)));
+        litData.add(new eventData(R.drawable.img4,R.drawable.drishti,getResources().getString(R.string.sld3),getResources().getString(R.string.slh3),getResources().getString(R.string.slr3)));
+        litData.add(new eventData(R.drawable.img4,R.drawable.poetry,getResources().getString(R.string.sld4),getResources().getString(R.string.slh4),getResources().getString(R.string.slr4)));
 
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,litData);
         final ListView list= rootView.findViewById(R.id.litList);

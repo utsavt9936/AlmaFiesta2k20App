@@ -22,11 +22,11 @@ public class musicfragment extends Fragment {
 
 
         final ArrayList<eventData> musicData=new ArrayList<>();
-        musicData.add(new eventData(R.drawable.img4,getResources().getString(R.string.smd1),getResources().getString(R.string.smh1),getResources().getString(R.string.smr1)));
-        musicData.add(new eventData(R.drawable.img4,getResources().getString(R.string.smd2),getResources().getString(R.string.smh2),getResources().getString(R.string.smr2)));
-        musicData.add(new eventData(R.drawable.img4,getResources().getString(R.string.smd3),getResources().getString(R.string.smh3),getResources().getString(R.string.smr3)));
-        musicData.add(new eventData(R.drawable.img4,getResources().getString(R.string.smd4),getResources().getString(R.string.smh4),getResources().getString(R.string.smr4)));
-        musicData.add(new eventData(R.drawable.img4,getResources().getString(R.string.smd5),getResources().getString(R.string.smh5),getResources().getString(R.string.smr5)));
+        musicData.add(new eventData(R.drawable.amlogo,R.drawable.uepho,getResources().getString(R.string.smd1),getResources().getString(R.string.smh1),getResources().getString(R.string.smr1)));
+        musicData.add(new eventData(R.drawable.amlogo,R.drawable.upbeat,getResources().getString(R.string.smd2),getResources().getString(R.string.smh2),getResources().getString(R.string.smr2)));
+        musicData.add(new eventData(R.drawable.amlogo,R.drawable.track,getResources().getString(R.string.smd3),getResources().getString(R.string.smh3),getResources().getString(R.string.smr3)));
+        musicData.add(new eventData(R.drawable.amlogo,R.drawable.duetto,getResources().getString(R.string.smd4),getResources().getString(R.string.smh4),getResources().getString(R.string.smr4)));
+        musicData.add(new eventData(R.drawable.amlogo,R.drawable.unpll,getResources().getString(R.string.smd5),getResources().getString(R.string.smh5),getResources().getString(R.string.smr5)));
 
 
 

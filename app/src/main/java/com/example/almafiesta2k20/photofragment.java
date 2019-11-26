@@ -20,9 +20,9 @@ public class photofragment extends Fragment {
 
 
         final ArrayList<eventData> photoData=new ArrayList<>();
-        photoData.add(new eventData(R.drawable.img4,getResources().getString(R.string.spd1),getResources().getString(R.string.sph1),getResources().getString(R.string.spr1)));
-        photoData.add(new eventData(R.drawable.img4,getResources().getString(R.string.spd2),getResources().getString(R.string.sph2),getResources().getString(R.string.spr2)));
-        photoData.add(new eventData(R.drawable.img4,getResources().getString(R.string.spd3),getResources().getString(R.string.sph3),getResources().getString(R.string.spr3)));
+        photoData.add(new eventData(R.drawable.img4,R.drawable.picofthe,getResources().getString(R.string.spd1),getResources().getString(R.string.sph1),getResources().getString(R.string.spr1)));
+        photoData.add(new eventData(R.drawable.img4,R.drawable.shortfilm,getResources().getString(R.string.spd2),getResources().getString(R.string.sph2),getResources().getString(R.string.spr2)));
+        photoData.add(new eventData(R.drawable.img4,R.drawable.docum,getResources().getString(R.string.spd3),getResources().getString(R.string.sph3),getResources().getString(R.string.spr3)));
 
 
 

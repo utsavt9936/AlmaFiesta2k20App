@@ -20,8 +20,8 @@ public class finefragment extends Fragment {
 
 
         final ArrayList<eventData> fineData=new ArrayList<>();
-        fineData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sfd1),getResources().getString(R.string.sfh1),getResources().getString(R.string.sfr1)));
-        fineData.add(new eventData(R.drawable.img4,getResources().getString(R.string.sfd2),getResources().getString(R.string.sfh2),getResources().getString(R.string.sfr2)));
+        fineData.add(new eventData(R.drawable.img4,R.drawable.shaezd,getResources().getString(R.string.sfd1),getResources().getString(R.string.sfh1),getResources().getString(R.string.sfr1)));
+        fineData.add(new eventData(R.drawable.img4,R.drawable.facepaint,getResources().getString(R.string.sfd2),getResources().getString(R.string.sfh2),getResources().getString(R.string.sfr2)));
 
 
         listArrayAdapter lar=new listArrayAdapter(getContext(),0,fineData);

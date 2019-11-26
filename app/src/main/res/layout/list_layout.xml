@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:paddingHorizontal="8dp"
         android:paddingTop="8dp"
         android:id="@+id/icon"/>
+
     <TextView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        tools:text="Text displayed here"
-        android:textSize="50dp"
+        android:id="@+id/listText"
+        android:layout_width="1dp"
         android:layout_height="wrap_content"
+
+        android:fontFamily="@font/jacques_francois_shadow"
         android:paddingTop="8dp"
-        android:id="@+id/listText"/>
+        android:textSize="50dp"
+        android:visibility="gone"
+        tools:text="Text displayed here" />
 </LinearLayout>
